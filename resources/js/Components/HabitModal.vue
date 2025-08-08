@@ -24,6 +24,7 @@ const selectChoice = (choice) => {
     modalStep.value = choice;
 };
 
+
 // Function to go back to choice step
 const goBackToChoice = () => {
     modalStep.value = 'choice';
@@ -36,7 +37,7 @@ const goBackToChoice = () => {
             <!-- Header -->
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-medium text-gray-900" dir="rtl">
-                    {{ modalStep === 'choice' ? 'انتخاب کنید' : 
+                    {{ modalStep === 'choice' ? 'انتخاب کنید' :
                        modalStep === 'create-habit' ? 'ساخت عادت جدید' : 'ترک عادت' }}
                 </h3>
                 <button
@@ -52,7 +53,7 @@ const goBackToChoice = () => {
             <!-- Choice Step -->
             <div v-if="modalStep === 'choice'" class="space-y-4" dir="rtl">
                 <p class="text-gray-600 mb-6">چه کاری می‌خواهید انجام دهید؟</p>
-                
+
                 <div class="grid grid-cols-1 gap-4">
                     <button
                         @click="selectChoice('create-habit')"
@@ -70,7 +71,7 @@ const goBackToChoice = () => {
                             </div>
                         </div>
                     </button>
-                    
+
                     <button
                         @click="selectChoice('quit-habit')"
                         class="p-4 border-2 border-red-200 rounded-lg hover:border-red-400 hover:bg-red-50 transition-colors"
@@ -103,7 +104,7 @@ const goBackToChoice = () => {
                         بازگشت
                     </button>
                 </div>
-                
+
                 <div>
                     <label for="habit-name" class="block text-sm font-medium text-gray-700 mb-2">
                         نام عادت
@@ -115,7 +116,7 @@ const goBackToChoice = () => {
                         placeholder="مثال: ورزش روزانه"
                     />
                 </div>
-                
+
                 <div>
                     <label for="habit-description" class="block text-sm font-medium text-gray-700 mb-2">
                         توضیحات
@@ -127,7 +128,7 @@ const goBackToChoice = () => {
                         placeholder="توضیحات مربوط به عادت..."
                     ></textarea>
                 </div>
-                
+
                 <div>
                     <label for="habit-frequency" class="block text-sm font-medium text-gray-700 mb-2">
                         تکرار
@@ -141,7 +142,7 @@ const goBackToChoice = () => {
                         <option value="monthly">ماهانه</option>
                     </select>
                 </div>
-                
+
                 <div class="flex justify-end space-x-3 mt-6" dir="rtl">
                     <button
                         @click="closeModal"
@@ -170,7 +171,7 @@ const goBackToChoice = () => {
                         بازگشت
                     </button>
                 </div>
-                
+
                 <div>
                     <label for="quit-habit-name" class="block text-sm font-medium text-gray-700 mb-2">
                         نام عادتی که می‌خواهید ترک کنید
@@ -182,7 +183,7 @@ const goBackToChoice = () => {
                         placeholder="مثال: سیگار کشیدن"
                     />
                 </div>
-                
+
                 <div>
                     <label for="quit-habit-reason" class="block text-sm font-medium text-gray-700 mb-2">
                         دلیل ترک
@@ -194,7 +195,7 @@ const goBackToChoice = () => {
                         placeholder="چرا می‌خواهید این عادت را ترک کنید؟"
                     ></textarea>
                 </div>
-                
+
                 <div>
                     <label for="quit-habit-alternative" class="block text-sm font-medium text-gray-700 mb-2">
                         جایگزین (اختیاری)
@@ -206,7 +207,7 @@ const goBackToChoice = () => {
                         placeholder="مثال: به جای سیگار، پیاده‌روی"
                     />
                 </div>
-                
+
                 <div class="flex justify-end space-x-3 mt-6" dir="rtl">
                     <button
                         @click="closeModal"
@@ -223,4 +224,4 @@ const goBackToChoice = () => {
             </div>
         </div>
     </Modal>
-</template> 
+</template>

@@ -8,6 +8,7 @@ import { ref } from 'vue';
 import { useCounterStore } from '@/stores/counter';
 import HabitModal from "@/Components/HabitModal.vue";
 
+
 const counter = useCounterStore();
 
 // Modal state
@@ -44,7 +45,7 @@ const closeModal = () => {
         <div class="py-12">
             <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
-                
+
                 </div>
             </div>
         </div>
