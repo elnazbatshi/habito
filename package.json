@@ -14,23 +14,24 @@
         "@tailwindcss/vite": "^4.0.0",
         "@vitejs/plugin-vue": "^4.5.2",
         "@vue/eslint-config-prettier": "^9.0.0",
-        "autoprefixer": "^10.4.17",
+        "autoprefixer": "^10.4.21",
         "axios": "^1.6.8",
         "concurrently": "^9.0.1",
         "eslint": "^8.57.0",
         "eslint-plugin-vue": "^9.23.0",
         "laravel-vite-plugin": "^1.0.5",
-        "postcss": "^8.4.33",
+        "postcss": "^8.5.6",
         "prettier": "^3.3.0",
         "prettier-plugin-organize-imports": "^4.0.0",
         "prettier-plugin-tailwindcss": "^0.6.5",
-        "tailwindcss": "^3.4.1",
+        "tailwindcss": "^3.4.17",
         "vite": "^5.2.0",
         "vue": "^3.4.21"
     },
     "dependencies": {
+        "@headlessui/vue": "^1.7.23",
         "@inertiajs/vue3": "^1.0.13",
-        "pinia": "^2.1.7",
+        "pinia": "^2.3.1",
         "vue-toastification": "^2.0.0-rc.5",
         "ziggy-js": "^1.7.4"
     }
