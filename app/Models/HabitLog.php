@@ -20,9 +20,16 @@ class HabitLog extends Model
     protected $casts = [
         'date' => 'date',
     ];
-
+    protected $attributes = [
+        'status' => 'pending',
+    ];
     public function userHabit()
     {
         return $this->belongsTo(UserHabit::class);
     }
+    public function user()
+    {
+        return $this->hasOneThrough(User::class, UserHabit::class, 'id', 'id', 'user_habit_id', 'user_id');
+    }
+
 }

@@ -95,11 +95,11 @@ const averageCompletionRate = computed(() => {
             </div>
         </template>
 
-        <div class="float-right my-2">
+        <div class="float-right my-2 px-4 sm:px-4 md:px-6 lg:px-8 xl:px-10 2xl:px-12 ">
             <!-- دکمه باز کردن مودال -->
             <button
                 @click="isOpen = true"
-                class="mr-2 rounded border border-gray-300 px-4 text-xl text-black hover:bg-gray-100"
+                class="  mr-2 rounded border border-gray-300 px-4 text-xl text-black hover:bg-gray-100"
             >
                 +
             </button>
@@ -223,6 +223,12 @@ const averageCompletionRate = computed(() => {
                             </div>
                         </div>
                     </div>
+                </div>
+       <!-- توضیح تغییر وضعیت-->
+                <div dir="rtl" class="mb-4 rounded-lg border border-gray-200 bg-gray-50 p-3 text-sm text-gray-700">
+                    <p><span class="font-bold text-green-600">✅ Completed:</span> انجام شده</p>
+                    <p><span class="font-bold text-yellow-500">⏭ Skipped:</span> عمداً رد شده (مثلاً روز استراحت)</p>
+                    <p><span class="font-bold text-red-500">❌ Missed:</span> فراموش شده یا انجام نشده بدون برنامه</p>
                 </div>
 
                 <!-- Habits Table -->

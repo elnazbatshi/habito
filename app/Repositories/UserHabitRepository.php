@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Habit;
+use App\Models\HabitLog;
 use App\Models\UserHabit;
 
 class UserHabitRepository
@@ -33,5 +34,14 @@ class UserHabitRepository
         $availableHabits = $defaultHabits->whereNotIn('id', $userHabits);
 
         return $availableHabits;
+    }
+
+    public function updateOrCreateLog(array $attributes, array $values): HabitLog
+    {
+        return HabitLog::updateOrCreate($attributes, $values);
+    }
+    public function findByIdAndUser(int $id, int $userId): ?UserHabit
+    {
+        return UserHabit::where('id', $id)->where('user_id', $userId)->first();
     }
 }
