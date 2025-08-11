@@ -1,23 +1,37 @@
 <?php
-namespace App\Repositories\UserHabit;
 
+namespace App\Repositories;
 
-use AppModels\user_habits;
+use App\Models\Habit;
+use App\Models\UserHabit;
 
 class UserHabitRepository
 {
-    public function assignDefaultHabitToUser(array $data)
+    public function create(array $data): UserHabit
     {
-        return user_habits::create($data);
+        return UserHabit::create($data);
     }
 
-    public function createCustomHabitForUser(array $data)
+    public function getByUser(int $userId)
     {
-        return user_habits::create($data);
+        return UserHabit::where('user_id', $userId)->get();
     }
 
-    public function getUserHabits($userId)
+    public function getHabitDefaultForUser(int $userId)
     {
-        return user_habits::where('user_id', $userId)->get();
+        // Get all default habits
+        $defaultHabits = Habit::where('is_default', true)
+            ->orderBy('title')
+            ->get(['id', 'title']);
+
+        // Get habits that user has already created
+        $userHabits = UserHabit::where('user_id', $userId)
+            ->whereNotNull('habit_id')
+            ->pluck('habit_id');
+
+        // Filter out habits that user already has
+        $availableHabits = $defaultHabits->whereNotIn('id', $userHabits);
+
+        return $availableHabits;
     }
 }

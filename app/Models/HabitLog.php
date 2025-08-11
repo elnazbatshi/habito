@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use AppModels\UserHabit;
+use App\Models\UserHabit;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,7 @@ class HabitLog extends Model
         'user_habit_id',
         'date',
         'status',
+        'notes',
     ];
 
     protected $casts = [
@@ -25,4 +26,3 @@ class HabitLog extends Model
         return $this->belongsTo(UserHabit::class);
     }
 }
-

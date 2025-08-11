@@ -2,25 +2,23 @@
 
 namespace App\Services;
 
-
-
-use App\Repositories\UserHabit\UserHabitRepository;
+use App\Models\User;
+use App\Repositories\UserHabitRepository;
 
 class UserHabitService
 {
-    protected $habitRepo;
-    public function __construct(UserHabitRepository $habitRepo)
+    public function __construct(private readonly UserHabitRepository $habitRepo) {}
+
+    public function createForUser(User $user, array $data)
     {
-        $this->habitRepo = $habitRepo;
-    }
-    public function Habits(array $filters = [])
-    {
-        return $this->habitRepo->allHabits();
-    }
-    public function listUserHabits(int $userId)
-    {
-        return $this->habitRepo->allByUser($userId);
+        $payload = array_merge($data, [
+            'user_id' => $user->id,
+        ]);
+        return $this->habitRepo->create($payload);
     }
 
-
+    public function listForUser(int $userId)
+    {
+        return $this->habitRepo->getByUser($userId);
+    }
 }
